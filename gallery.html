@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage Digital | Chamithu</title>
+    <title>Work Gallery | Vantage Digital</title>
     <link rel="icon" type="image/png" href="./logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,156 +11,153 @@
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
-        .profile-aspect { aspect-ratio: 912 / 1173; object-fit: cover; }
-        
-        /* Scrollbar Hide */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Unified Ash Color (Slate-300) */
-        .bg-ash-theme { background-color: #cbd5e1; } 
+        /* Unified Ash Theme (Slate-300) to match Main Page */
+        .bg-ash-theme { background-color: #cbd5e1; }
         
-        /* Right Crop for Clothing Tile */
-        .crop-right {
-            object-position: right center;
-        }
+        /* Modal visibility logic */
+        #projectModal.hidden { display: none; }
+        #projectModal.flex { display: flex; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
     <nav class="w-full bg-ash-theme border-b border-slate-400">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-md">V</div>
-                <div class="text-xl md:text-2xl font-bold tracking-tighter text-slate-900 uppercase">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md">V</div>
+                <div class="text-lg md:text-xl font-bold tracking-tighter text-slate-900 uppercase">
                     VANTAGE <span class="text-blue-600">DIGITAL</span>
                 </div>
             </div>
-            <div class="flex space-x-6 md:space-x-10 items-center font-bold text-xs tracking-widest uppercase">
-                <a href="#work" class="text-slate-700 hover:text-blue-600 transition">Work</a>
-                <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-300/50">Hire Me</a>
-            </div>
+            <a href="index.html" class="flex items-center gap-2 bg-white text-slate-900 px-5 py-2.5 rounded-xl font-bold text-[11px] border border-slate-300 hover:bg-slate-100 transition shadow-sm uppercase tracking-widest">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
         </div>
     </nav>
 
-    <header class="hero-bg text-white py-24 px-6 border-b border-slate-800">
-        <div class="max-w-5xl mx-auto text-center">
-            <span class="inline-block px-4 py-1.5 mb-8 text-[10px] font-black tracking-[0.3em] uppercase bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
-                Premium Web Design & Automation
-            </span>
-            <h1 class="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-                Modern Digital Tools for <br> <span class="text-blue-500 text-gradient">Local Leaders</span>
-            </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
-                I build high-performance websites and automated systems for businesses in Sri Lanka and worldwide.
-            </p>
-            <div class="flex justify-center">
-                <a href="https://wa.me/94774668086" target="_blank" class="px-10 py-5 bg-blue-600 rounded-2xl font-bold hover:bg-blue-700 transition flex items-center shadow-2xl shadow-blue-600/20">
-                    <i class="fab fa-whatsapp mr-3 text-2xl"></i> Start a Project
-                </a>
-            </div>
-        </div>
+    <header class="hero-bg text-white py-20 px-6 text-center">
+        <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">Project <span class="text-blue-500">Portfolio</span></h1>
+        <p class="text-slate-400 mt-4 font-bold uppercase tracking-widest text-[10px]">Chamithu Gunathilaka • Vantage Digital Solutions</p>
     </header>
 
-    <section id="work" class="py-24 bg-white px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Industry Solutions</h2>
-                <div class="w-20 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full"></div>
-                <p class="text-slate-400 mt-6 text-xs font-bold uppercase tracking-[0.4em]">Swipe to explore categories</p>
-            </div>
-
-            <div class="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory no-scrollbar">
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        
+        <section id="salons" class="mb-32 scroll-mt-10">
+            <h2 class="text-2xl font-black border-l-4 border-blue-600 pl-4 uppercase tracking-tighter mb-10 text-slate-900">Salons & Spas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <a href="gallery.html#salons" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-500 transition-all duration-500 group">
-                    <div class="h-60 bg-slate-200 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div onclick="openProject('luxe')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
+                    <div class="overflow-hidden rounded-2xl mb-5">
+                        <img src="s1.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Luxe+Salon+Project'">
                     </div>
-                    <div class="p-10 text-center">
-                        <h3 class="font-bold text-xl text-slate-900">Salons & Spas</h3>
-                        <p class="text-slate-400 text-[10px] mt-2 uppercase font-black tracking-widest">Booking Systems</p>
-                    </div>
-                </a>
+                    <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">Luxe Hub Booking</h3>
+                    <p class="text-blue-600 text-[10px] font-bold px-2 uppercase tracking-widest mt-1">Click to view 6 Images</p>
+                </div>
 
-                <a href="gallery.html#hardware" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-500 transition-all duration-500 group">
-                    <div class="h-60 bg-slate-900 flex items-center justify-center">
-                        <i class="fas fa-tools text-6xl text-slate-700"></i>
-                    </div>
-                    <div class="p-10 text-center">
-                        <h3 class="font-bold text-xl text-slate-900">Hardware Stores</h3>
-                        <p class="text-slate-400 text-[10px] mt-2 uppercase font-black tracking-widest">Inventory & POS</p>
-                    </div>
-                </a>
+            </div>
+        </section>
 
-                <a href="gallery.html#food" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-500 transition-all duration-500 group">
-                    <div class="h-60 bg-slate-200 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        <section id="hardware" class="mb-32 scroll-mt-10">
+            <h2 class="text-2xl font-black border-l-4 border-slate-400 pl-4 uppercase tracking-tighter mb-10 text-slate-700">Hardware & Retail</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div onclick="openProject('iron')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
+                    <div class="overflow-hidden rounded-2xl mb-5 bg-slate-900 flex items-center justify-center aspect-video">
+                        <i class="fas fa-tools text-4xl text-slate-700"></i>
                     </div>
-                    <div class="p-10 text-center">
-                        <h3 class="font-bold text-xl text-slate-900">Fast Food & Cafes</h3>
-                        <p class="text-slate-400 text-[10px] mt-2 uppercase font-black tracking-widest">Ordering Portals</p>
-                    </div>
-                </a>
+                    <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">IronWorks Inventory</h3>
+                    <p class="text-blue-600 text-[10px] font-bold px-2 uppercase tracking-widest mt-1">Click to view 6 Images</p>
+                </div>
 
-                <a href="gallery.html#clothing" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-500 transition-all duration-500 group">
-                    <div class="h-60 bg-slate-200 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" class="w-full h-full object-cover crop-right group-hover:scale-125 transition duration-1000">
-                    </div>
-                    <div class="p-10 text-center">
-                        <h3 class="font-bold text-xl text-slate-900">Clothing Stores</h3>
-                        <p class="text-slate-400 text-[10px] mt-2 uppercase font-black tracking-widest">E-Commerce Solutions</p>
-                    </div>
-                </a>
+            </div>
+        </section>
 
+    </main>
+
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-sm items-center justify-center p-4">
+        <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-[2.5rem] overflow-hidden relative flex flex-col shadow-2xl">
+            
+            <button onclick="closeProject()" class="absolute top-6 right-6 z-50 bg-slate-100 hover:bg-red-500 hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-slate-900 transition-all shadow-md">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="p-8 md:p-14 overflow-y-auto no-scrollbar">
+                <h2 id="modalTitle" class="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">Project Title</h2>
+                <div class="w-16 h-1 bg-blue-600 my-4"></div>
+                <p id="modalDesc" class="text-slate-500 mb-10 font-medium">Description of the project.</p>
+                
+                <div id="imageGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="about" class="py-24 bg-slate-900 text-white px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="w-full md:w-1/2 flex justify-center">
-                <div class="relative p-2 border-2 border-blue-600 rounded-3xl shadow-[20px_20px_0px_0px_rgba(37,99,235,0.2)]">
-                    <img src="1.png" alt="Chamithu" class="rounded-2xl w-full max-w-sm profile-aspect bg-slate-800">
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 text-center md:text-left">
-                <h2 class="text-4xl font-black mb-6 uppercase tracking-tighter italic">The Expert Behind <br><span class="text-blue-500 not-italic">Vantage Digital</span></h2>
-                <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                    I am **Chamithu**, an IT professional specializing in Artificial Intelligence. Based in Wadduwa, Western Province, I combine technical precision with creative design to help businesses grow in the digital era.
-                </p>
-                <div class="space-y-4 font-bold text-slate-300">
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>AI-Driven Development</span>
-                    </div>
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>Custom UI/UX Systems</span>
-                    </div>
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>Business Automation Expert</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-ash-theme py-16 px-6 border-t border-slate-400">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer class="bg-ash-theme py-8 px-6 border-t border-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left">
-                <div class="font-black text-slate-900 text-2xl uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
-                <p class="text-slate-600 text-xs mt-3 font-black uppercase tracking-[0.2em]">Chamithu Gunathilaka • Wadduwa, Sri Lanka</p>
+                <div class="font-black text-slate-900 text-lg uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
+                <p class="text-slate-600 text-[10px] font-bold uppercase tracking-widest">Wadduwa, Sri Lanka</p>
             </div>
-            <div class="flex flex-col md:items-end text-center md:text-right gap-2">
-                <p class="text-slate-900 font-black text-xl tracking-widest">+94 77 466 8086</p>
-                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-700 hover:underline font-black text-sm uppercase tracking-widest">vantage.digital.contact@gmail.com</a>
+            <div class="flex flex-col md:items-end text-center md:text-right">
+                <p class="text-slate-900 font-bold text-xs tracking-widest">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-700 text-[10px] font-bold uppercase hover:underline">vantage.digital.contact@gmail.com</a>
             </div>
-        </div>
-        <div class="text-center mt-16 text-slate-500 text-[10px] font-black uppercase tracking-[0.5em] border-t border-slate-400/30 pt-8">
-            &copy; 2026 Vantage Digital Solutions • Sri Lanka
         </div>
     </footer>
 
+    <script>
+        // Database for Unique Project Popups
+        const projects = {
+            'luxe': {
+                title: 'Luxe Hub Booking System',
+                desc: 'A complete automation solution for premium salons, featuring real-time booking and staff scheduling.',
+                images: ['luxe1.png', 'luxe2.png', 'luxe3.png', 'luxe4.png', 'luxe5.png', 'luxe6.png']
+            },
+            'iron': {
+                title: 'IronWorks Inventory',
+                desc: 'Digital inventory management for retail hardware stores, optimizing stock tracking and sales analysis.',
+                images: ['iron1.png', 'iron2.png', 'iron3.png', 'iron4.png', 'iron5.png', 'iron6.png']
+            }
+        };
+
+        function openProject(id) {
+            const project = projects[id];
+            if (!project) return;
+
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalDesc').innerText = project.desc;
+            
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = ''; 
+
+            project.images.forEach(img => {
+                grid.innerHTML += `
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
+                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Screenshot'">
+                    </div>
+                `;
+            });
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Logic to stop browser loading spinner if files are missing
+        window.addEventListener('load', () => {
+            setTimeout(() => { if(window.stop) window.stop(); }, 1000);
+        });
+    </script>
 </body>
 </html>
