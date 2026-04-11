@@ -11,121 +11,116 @@
         .hero-bg {
             background: radial-gradient(circle at top right, #1e293b, #0f172a);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        /* Custom aspect ratio based on 912x1173 resolution for perfect frame alignment */
+        /* Custom aspect ratio based on 912x1173 resolution */
         .profile-aspect {
             aspect-ratio: 912 / 1173;
+            object-fit: cover;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tight text-slate-900 uppercase">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="text-lg md:text-xl font-bold tracking-tight text-slate-900 uppercase">
                 VANTAGE <span class="text-blue-600">DIGITAL</span>
             </div>
-            <div class="hidden md:flex space-x-8 items-center font-medium">
+            <div class="flex space-x-4 md:space-x-8 items-center font-medium text-sm md:text-base">
                 <a href="#services" class="hover:text-blue-600 transition">Services</a>
                 <a href="#about" class="hover:text-blue-600 transition">About</a>
-                <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">Start a Project</a>
+                <a href="https://wa.me/94774668086" target="_blank" class="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-md shadow-blue-200">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg text-white pt-40 pb-24 px-6">
+    <header class="hero-bg text-white pt-32 pb-20 px-6">
         <div class="max-w-5xl mx-auto text-center">
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+            <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-widest uppercase bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
                 Premium Web Design & Automation
             </span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 class="text-3xl md:text-6xl font-bold mb-6 leading-tight">
                 Modern Digital Experiences for <br> <span class="text-blue-500">Growing Businesses</span>
             </h1>
-            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-                Helping service providers and retail shops stand out with high-performance websites, automated booking, and strategic digital solutions.
+            <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+                Helping service providers and retail shops stand out with high-performance websites and automated systems.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="https://wa.me/94774668086" target="_blank" class="px-8 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center text-white shadow-lg shadow-blue-900/20">
                     <i class="fab fa-whatsapp mr-2 text-xl"></i> Chat on WhatsApp
                 </a>
-                <a href="mailto:vantage.digital.contact@gmail.com" 
-  		 target="_blank" 
-   		 class="px-8 py-4 bg-slate-800 rounded-xl font-bold border border-slate-700 hover:bg-slate-700 transition text-white text-center">
-    		 Email Me Directly
-		</a>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="px-8 py-4 bg-slate-800 rounded-xl font-bold border border-slate-700 hover:bg-slate-700 transition text-white text-center">
+                    Email Me Directly
+                </a>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-24 px-6">
+    <section id="services" class="py-20 px-6">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-16 text-slate-900">How We Help You Grow</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-slate-900">How We Help You Grow</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-desktop"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Professional Design</h3>
+                    <h3 class="text-lg font-bold mb-3">Professional Design</h3>
                     <p class="text-slate-500 leading-relaxed text-sm">Clean, responsive websites that look stunning on any device and capture your brand's unique energy.</p>
                 </div>
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Smart Automation</h3>
+                    <h3 class="text-lg font-bold mb-3">Smart Automation</h3>
                     <p class="text-slate-500 leading-relaxed text-sm">Automated booking systems and client management tools that save you hours of work every week.</p>
                 </div>
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">SEO Optimization</h3>
+                    <h3 class="text-lg font-bold mb-3">SEO Optimization</h3>
                     <p class="text-slate-500 leading-relaxed text-sm">We optimize your site so local customers can find you easily when they search on Google or Bing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-slate-900 text-white px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2 relative flex justify-center">
-                <div class="relative max-w-md w-full profile-aspect border-2 border-blue-600 rounded-2xl">
-                    <img src="1.png" alt="Chamithu - Vantage Digital" class="absolute top-2 left-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] rounded-xl shadow-2xl hover:scale-[1.02] transition duration-500 object-cover bg-slate-800">
+    <section id="about" class="py-20 bg-slate-900 text-white px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative p-1.5 border-2 border-blue-600 rounded-2xl shadow-[10px_10px_0px_0px_rgba(37,99,235,0.3)]">
+                    <img src="1.png" alt="Chamithu - Vantage Digital" 
+                         class="rounded-xl shadow-2xl w-full max-w-xs md:max-w-sm mx-auto profile-aspect bg-slate-800 transition duration-500">
                 </div>
             </div>
-            <div class="md:w-1/2">
-                <h2 class="text-3xl font-bold mb-6">Expert Solutions for Modern Brands</h2>
-                <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Expert Solutions</h2>
+                <p class="text-slate-400 text-base mb-4 leading-relaxed">
                     I'm Chamithu, founder of Vantage Digital. As an AI-specialized IT professional, I bridge the gap between complex technology and practical small business needs.
                 </p>
-                <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                    I don't just build websites; I build business assets. Whether you run a high-end salon or a local retail shop, my goal is to make your business run more efficiently through smart design.
+                <p class="text-slate-400 text-base mb-6 leading-relaxed">
+                    I build business assets that help you work smarter. Whether you run a high-end salon or a retail shop, my goal is to drive your digital success.
                 </p>
-                <div class="flex items-center gap-4 text-blue-400">
-                    <div class="h-px w-12 bg-blue-600"></div>
-                    <span class="font-bold tracking-widest uppercase text-xs text-white">The Vantage Guarantee</span>
+                <div class="flex items-center justify-center md:justify-start gap-4 text-blue-400">
+                    <div class="h-px w-8 bg-blue-600"></div>
+                    <span class="font-bold tracking-widest uppercase text-[10px] text-white">The Vantage Guarantee</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white py-12 px-6 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-left">
-                <div class="text-lg font-bold mb-2 text-slate-900 uppercase tracking-tighter">VANTAGE DIGITAL</div>
-                <p class="text-slate-500 text-sm">Professional Web Solutions & Automation</p>
+    <footer class="bg-white py-8 px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+            <div class="text-center md:text-left">
+                <div class="font-bold text-slate-900 uppercase tracking-tighter">VANTAGE DIGITAL</div>
+                <p class="text-slate-400 text-xs mt-1">Web Development & Automation</p>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-slate-900 font-bold tracking-wide">+94 77 466 8086</p>
-                <a href="mailto:vantage.digital.contact@gmail.com" class="text-slate-500 hover:text-blue-600 transition">vantage.digital.contact@gmail.com</a>
+            <div class="flex flex-col md:items-end text-center md:text-right">
+                <p class="text-slate-900 font-bold">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600 hover:underline">vantage.digital.contact@gmail.com</a>
             </div>
         </div>
-        <div class="text-center mt-12 pt-8 border-t border-slate-50 text-slate-400 text-xs uppercase tracking-wider">
-            &copy; 2026 Vantage Digital Solutions. All rights reserved.
+        <div class="text-center mt-8 text-slate-300 text-[10px] uppercase tracking-widest">
+            &copy; 2026 Vantage Digital Solutions
         </div>
     </footer>
 
