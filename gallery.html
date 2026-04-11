@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Gallery | Vantage Digital</title>
+    <title>Portfolio | Vantage Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+    <nav class="fixed w-full z-[60] bg-white/95 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
             <div class="text-lg md:text-xl font-bold tracking-tight text-slate-900 uppercase">
                 <a href="index.html">VANTAGE <span class="text-blue-600">DIGITAL</span></a>
@@ -25,74 +28,115 @@
     </nav>
 
     <header class="hero-bg text-white pt-32 pb-16 px-6 text-center">
-        <span class="inline-block px-4 py-1.5 mb-4 text-[10px] font-bold tracking-widest uppercase bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30 text-white">
-            Our Portfolio
-        </span>
         <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-white">Project <span class="text-blue-500">Showcase</span></h1>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 py-20">
         
         <section id="salons" class="mb-32 scroll-mt-24">
-            <div class="flex items-center gap-4 mb-10">
-                <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 uppercase tracking-tighter text-slate-900">Health & Beauty</h2>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full uppercase">Salons</span>
-            </div>
+            <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 uppercase tracking-tighter mb-10">Health & Beauty</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                    <img src="s1.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=Salon+Preview+1'">
-                    <h3 class="font-bold text-lg px-2 text-slate-900">Luxe Hub Booking</h3>
-                    <p class="text-slate-400 text-xs px-2 mb-2">Automated appointment scheduling system.</p>
+                
+                <div onclick="openProject('luxe')" class="group bg-white p-4 rounded-3xl shadow-sm border border-slate-100 cursor-pointer hover:border-blue-500 transition">
+                    <img src="s1.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=Luxe+Salon'">
+                    <h3 class="font-bold text-lg px-2">Luxe Hub Booking</h3>
+                    <p class="text-slate-400 text-xs px-2 mb-2">Click to view 6 project images</p>
                 </div>
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                    <img src="s2.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=Salon+Preview+2'">
-                    <h3 class="font-bold text-lg px-2 text-slate-900">Glow Skin Portal</h3>
-                    <p class="text-slate-400 text-xs px-2 mb-2">Digital storefront & inventory tracker.</p>
+
+                <div onclick="openProject('glow')" class="group bg-white p-4 rounded-3xl shadow-sm border border-slate-100 cursor-pointer hover:border-blue-500 transition">
+                    <img src="s2.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=Glow+Skin'">
+                    <h3 class="font-bold text-lg px-2">Glow Skin Portal</h3>
+                    <p class="text-slate-400 text-xs px-2 mb-2">Click to view 6 project images</p>
                 </div>
+
             </div>
         </section>
 
         <section id="hardware" class="mb-32 scroll-mt-24">
-            <div class="flex items-center gap-4 mb-10">
-                <h2 class="text-2xl font-bold border-l-4 border-slate-400 pl-4 uppercase tracking-tighter text-slate-700">Hardware & Tools</h2>
-                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">Retail</span>
-            </div>
+            <h2 class="text-2xl font-bold border-l-4 border-slate-400 pl-4 uppercase tracking-tighter text-slate-700 mb-10">Hardware & Tools</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                    <img src="h1.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=Hardware+System+A'">
-                    <h3 class="font-bold text-lg px-2 text-slate-900">IronWorks Inventory</h3>
-                    <p class="text-slate-400 text-xs px-2 mb-2">Live stock tracking & management.</p>
+                <div onclick="openProject('iron')" class="group bg-white p-4 rounded-3xl shadow-sm border border-slate-100 cursor-pointer hover:border-blue-500 transition">
+                    <img src="h1.png" class="rounded-2xl mb-4 w-full aspect-video object-cover bg-slate-100" onerror="this.src='https://via.placeholder.com/400x300?text=IronWorks'">
+                    <h3 class="font-bold text-lg px-2">IronWorks Inventory</h3>
+                    <p class="text-slate-400 text-xs px-2 mb-2">Click to view project gallery</p>
                 </div>
             </div>
         </section>
-
-        <div id="food" class="mb-20 scroll-mt-24">
-             <h2 class="text-2xl font-bold border-l-4 border-slate-200 pl-4 uppercase tracking-tighter text-slate-300 mb-6">Fast Food & Cafes</h2>
-             <div class="p-12 text-center bg-slate-100 rounded-3xl border border-dashed border-slate-200 text-slate-400 text-[10px] font-bold uppercase tracking-widest">Projects Incoming</div>
-        </div>
-
-        <div id="clothing" class="scroll-mt-24">
-            <h2 class="text-2xl font-bold border-l-4 border-slate-200 pl-4 uppercase tracking-tighter text-slate-300 mb-6">Clothing Stores</h2>
-            <div class="p-12 text-center bg-slate-100 rounded-3xl border border-dashed border-slate-200 text-slate-400 text-[10px] font-bold uppercase tracking-widest">Projects Incoming</div>
-        </div>
-
     </main>
 
-    <footer class="bg-white py-12 px-6 border-t border-slate-100">
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-5xl max-h-[90vh] rounded-[2rem] overflow-hidden relative flex flex-col">
+            <button onclick="closeProject()" class="absolute top-6 right-6 z-50 bg-white shadow-lg w-10 h-10 rounded-full flex items-center justify-center text-slate-900 hover:text-blue-600 transition">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="p-8 md:p-12 overflow-y-auto no-scrollbar">
+                <h2 id="modalTitle" class="text-3xl font-bold mb-2">Project Title</h2>
+                <p id="modalDesc" class="text-slate-500 mb-8">Description goes here.</p>
+                
+                <div id="imageGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white py-12 px-6 border-t border-slate-100 text-center md:text-left">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-            <div class="text-center md:text-left">
+            <div>
                 <div class="font-bold text-slate-900 uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
                 <p class="text-slate-400 text-xs mt-1">Web Development & Automation</p>
             </div>
-            <div class="flex flex-col md:items-end text-center md:text-right">
-                <p class="text-slate-900 font-bold tracking-wide">+94 77 466 8086</p>
-                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600 hover:underline font-medium">vantage.digital.contact@gmail.com</a>
+            <div class="md:text-right">
+                <p class="text-slate-900 font-bold">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600">vantage.digital.contact@gmail.com</a>
             </div>
-        </div>
-        <div class="text-center mt-8 text-slate-300 text-[10px] uppercase tracking-widest">
-            &copy; 2026 Vantage Digital Solutions
         </div>
     </footer>
 
+    <script>
+        // Database of Unique Projects
+        const projects = {
+            'luxe': {
+                title: 'Luxe Hub Booking System',
+                desc: 'A comprehensive 6-stage view of the salon automation project.',
+                images: ['luxe1.png', 'luxe2.png', 'luxe3.png', 'luxe4.png', 'luxe5.png', 'luxe6.png']
+            },
+            'glow': {
+                title: 'Glow Skin Portal',
+                desc: 'Client-facing interface and administrative inventory management.',
+                images: ['glow1.png', 'glow2.png', 'glow3.png', 'glow4.png', 'glow5.png', 'glow6.png']
+            },
+            'iron': {
+                title: 'IronWorks Inventory',
+                desc: 'High-performance database management for hardware retail.',
+                images: ['iron1.png', 'iron2.png', 'iron3.png', 'iron4.png', 'iron5.png', 'iron6.png']
+            }
+        };
+
+        function openProject(id) {
+            const project = projects[id];
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalDesc').innerText = project.desc;
+            
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = ''; // Clear previous images
+
+            project.images.forEach(img => {
+                grid.innerHTML += `
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x300?text=Screenshot'">
+                    </div>
+                `;
+            });
+
+            document.getElementById('projectModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProject() {
+            document.getElementById('projectModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
