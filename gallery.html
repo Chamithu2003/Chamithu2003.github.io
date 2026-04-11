@@ -3,47 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Gallery | Vantage Digital</title>
+    <title>Portfolio Gallery | Vantage Digital</title>
     <link rel="icon" type="image/png" href="./logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .bg-ash-header { background-color: #e2e8f0; }
-        .bg-ash-footer { background-color: #cbd5e1; }
+        html { scroll-behavior: smooth; }
+        .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Unified Ash Theme (Slate-300) to match Main Page */
+        .bg-ash-theme { background-color: #cbd5e1; }
+        
+        /* Modal Transition */
+        #projectModal.hidden { display: none; }
+        #projectModal.flex { display: flex; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="fixed w-full z-50 bg-ash-header border-b border-slate-300">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <div class="font-bold tracking-tight text-slate-900 uppercase">
-                VANTAGE <span class="text-blue-600">DIGITAL</span>
+    <nav class="w-full bg-ash-theme border-b border-slate-400">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-md">V</div>
+                <div class="text-xl md:text-2xl font-bold tracking-tighter text-slate-900 uppercase">
+                    VANTAGE <span class="text-blue-600">DIGITAL</span>
+                </div>
             </div>
-            <a href="index.html" class="flex items-center gap-2 bg-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold border border-slate-300 hover:bg-slate-50 transition shadow-sm">
-                <i class="fas fa-home"></i> BACK TO HOME
+            <a href="index.html" class="flex items-center gap-2 bg-white text-slate-900 px-5 py-2.5 rounded-xl font-bold text-xs border border-slate-300 hover:bg-slate-100 transition shadow-sm">
+                <i class="fas fa-arrow-left"></i> BACK TO HOME
             </a>
         </div>
     </nav>
 
-    <footer class="bg-ash-footer py-12 px-6 border-t border-slate-400 mt-20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left text-slate-900 font-bold uppercase tracking-tighter">
-                VANTAGE <span class="text-blue-600">DIGITAL</span>
+    <header class="hero-bg text-white py-20 px-6 text-center">
+        <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">Work <span class="text-blue-500">Showcase</span></h1>
+        <p class="text-slate-400 mt-4 font-bold uppercase tracking-widest text-[10px]">Chamithu Gunathilaka • Portfolio Gallery</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        
+        <section id="salons" class="mb-32 scroll-mt-10">
+            <h2 class="text-2xl font-black border-l-4 border-blue-600 pl-4 uppercase tracking-tighter mb-10 text-slate-900">Health & Beauty</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div onclick="openProject('luxe')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
+                    <div class="overflow-hidden rounded-2xl mb-5">
+                        <img src="s1.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Luxe+Salon'">
+                    </div>
+                    <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">Luxe Hub Booking</h3>
+                    <p class="text-blue-600 text-[10px] font-bold px-2 uppercase tracking-widest mt-1">6 Images Available</p>
+                </div>
+
             </div>
-            <p class="text-slate-700 text-[10px] font-bold uppercase">© 2026 Portfolio Gallery</p>
+        </section>
+
+        <section id="hardware" class="mb-32 scroll-mt-10">
+            <h2 class="text-2xl font-black border-l-4 border-slate-400 pl-4 uppercase tracking-tighter mb-10 text-slate-700">Hardware & Retail</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div onclick="openProject('iron')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
+                    <div class="overflow-hidden rounded-2xl mb-5 bg-slate-900 flex items-center justify-center aspect-video">
+                        <i class="fas fa-tools text-4xl text-slate-700"></i>
+                    </div>
+                    <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">IronWorks Inventory</h3>
+                    <p class="text-blue-600 text-[10px] font-bold px-2 uppercase tracking-widest mt-1">6 Images Available</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-sm items-center justify-center p-4">
+        <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-[2.5rem] overflow-hidden relative flex flex-col shadow-2xl">
+            
+            <button onclick="closeProject()" class="absolute top-6 right-6 z-50 bg-slate-100 hover:bg-red-500 hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-slate-900 transition-all shadow-md">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="p-8 md:p-14 overflow-y-auto no-scrollbar">
+                <h2 id="modalTitle" class="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">Project Title</h2>
+                <div class="w-16 h-1 bg-blue-600 my-4"></div>
+                <p id="modalDesc" class="text-slate-500 mb-10 font-medium">Description of the project goes here.</p>
+                
+                <div id="imageGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-ash-theme py-16 px-6 border-t border-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="font-black text-slate-900 text-xl uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
+                <p class="text-slate-600 text-[10px] mt-2 font-bold uppercase tracking-widest">Wadduwa • Sri Lanka</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-slate-900 font-black text-sm tracking-widest">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-700 font-black text-[10px] uppercase">vantage.digital.contact@gmail.com</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Force-stop the "loading spinner" if browser hangs on missing local files
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (window.stop) window.stop();
-            }, 1000);
-        });
+        // Project Image Database
+        const projects = {
+            'luxe': {
+                title: 'Luxe Hub Booking System',
+                desc: 'A complete end-to-end automation for modern hair salons including booking, staff management, and POS.',
+                images: ['luxe1.png', 'luxe2.png', 'luxe3.png', 'luxe4.png', 'luxe5.png', 'luxe6.png']
+            },
+            'iron': {
+                title: 'IronWorks Inventory',
+                desc: 'High-performance inventory management for retail hardware stores with barcode support and live stock tracking.',
+                images: ['iron1.png', 'iron2.png', 'iron3.png', 'iron4.png', 'iron5.png', 'iron6.png']
+            }
+            // Add more projects here
+        };
 
-        // [Your openProject logic from previous step goes here]
+        function openProject(id) {
+            const project = projects[id];
+            if (!project) return;
+
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalDesc').innerText = project.desc;
+            
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = ''; // Clear
+
+            project.images.forEach(img => {
+                grid.innerHTML += `
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
+                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Screenshot'">
+                    </div>
+                `;
+            });
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        }
+
+        // Fix spinning loader issue
+        window.addEventListener('load', () => {
+            setTimeout(() => { if(window.stop) window.stop(); }, 1000);
+        });
     </script>
 </body>
 </html>
