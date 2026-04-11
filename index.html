@@ -15,11 +15,14 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .bg-ash-theme { background-color: #cbd5e1; } 
         .crop-right { object-position: right center; }
+        
+        /* Mobile Menu Toggle Logic */
+        #mobile-menu.hidden { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="w-full bg-ash-theme border-b border-slate-400">
+    <nav class="w-full bg-ash-theme border-b border-slate-400 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md">V</div>
@@ -27,11 +30,25 @@
                     VANTAGE <span class="text-blue-600">DIGITAL</span>
                 </div>
             </div>
+
             <div class="hidden md:flex space-x-8 items-center font-bold text-[11px] tracking-widest uppercase text-slate-700">
                 <a href="#services" class="hover:text-blue-600 transition">Services</a>
                 <a href="#work" class="hover:text-blue-600 transition">Projects</a>
                 <a href="#about" class="hover:text-blue-600 transition">About</a>
                 <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-sm">Contact</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-slate-900 text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-ash-theme border-t border-slate-400 w-full absolute top-full left-0 z-50 shadow-xl">
+            <div class="flex flex-col p-6 space-y-4 font-bold text-[12px] tracking-widest uppercase text-slate-700">
+                <a href="#services" class="hover:text-blue-600 transition py-2 border-b border-slate-300/50" onclick="toggleMenu()">Services</a>
+                <a href="#work" class="hover:text-blue-600 transition py-2 border-b border-slate-300/50" onclick="toggleMenu()">Projects</a>
+                <a href="#about" class="hover:text-blue-600 transition py-2 border-b border-slate-300/50" onclick="toggleMenu()">About</a>
+                <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-5 py-3 rounded-lg text-center shadow-md">Contact Me</a>
             </div>
         </div>
     </nav>
@@ -58,109 +75,18 @@
         </div>
     </header>
 
-    <section id="services" class="py-20 px-6 bg-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter mb-12">How We Help You Grow</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition hover:shadow-md">
-                    <div class="text-blue-600 text-2xl mb-4"><i class="fas fa-desktop"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-slate-900">Web Design</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Responsive, fast-loading sites tailored for local service providers.</p>
-                </div>
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition hover:shadow-md">
-                    <div class="text-blue-600 text-2xl mb-4"><i class="fas fa-calendar-check"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-slate-900">Booking Systems</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Automate your schedule. Perfect for Salons and Spas.</p>
-                </div>
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition hover:shadow-md">
-                    <div class="text-blue-600 text-2xl mb-4"><i class="fas fa-rocket"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-slate-900">SEO Strategy</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Be the first business your neighbors see on Google.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="py-20 bg-slate-100 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter">Industry Solutions</h2>
-                <p class="text-slate-500 mt-2 text-xs font-bold uppercase tracking-widest">Swipe or scroll to see more</p>
-            </div>
-            <div class="flex overflow-x-auto gap-6 pb-10 snap-x snap-mandatory no-scrollbar px-2">
-                <a href="gallery.html#salons" class="snap-center shrink-0 w-[280px] md:w-80 bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
-                    <div class="h-48 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
-                    <div class="p-6 text-center"><h3 class="font-bold text-lg">Salons & Spas</h3></div>
-                </a>
-                <a href="gallery.html#hardware" class="snap-center shrink-0 w-[280px] md:w-80 bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
-                    <div class="h-48 bg-slate-900 flex items-center justify-center"><i class="fas fa-tools text-4xl text-slate-700"></i></div>
-                    <div class="p-6 text-center"><h3 class="font-bold text-lg">Hardware Stores</h3></div>
-                </a>
-                <a href="gallery.html#food" class="snap-center shrink-0 w-[280px] md:w-80 bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
-                    <div class="h-48 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
-                    <div class="p-6 text-center"><h3 class="font-bold text-lg">Fast Food & Cafes</h3></div>
-                </a>
-                <a href="gallery.html#clothing" class="snap-center shrink-0 w-[280px] md:w-80 bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
-                    <div class="h-48 bg-slate-200 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" class="w-full h-full object-cover crop-right group-hover:scale-110 transition duration-700">
-                    </div>
-                    <div class="p-6 text-center"><h3 class="font-bold text-lg">Clothing Stores</h3></div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-slate-900 text-white px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="w-full md:w-1/2 flex justify-center">
-                <div class="relative p-1 bg-blue-600/20 rounded-3xl shadow-lg shadow-blue-500/10">
-                    <img src="1.png" alt="Chamithu" class="rounded-2xl w-full max-w-sm profile-aspect bg-slate-800 border-2 border-blue-600/30 shadow-md">
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 text-center md:text-left">
-                <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Expert Solutions for Modern Brands</h2>
-                <p class="text-slate-400 mb-6 leading-relaxed">
-                    I'm Chamithu, founder of Vantage Digital. As an AI-specialized IT professional, I bridge the gap between complex technology and practical small business needs.
-                </p>
-                <p class="text-slate-400 mb-8 leading-relaxed">
-                    I don't just build websites; I build business assets. Whether you run a high-end salon or a local retail shop, my goal is to make your business run more efficiently through smart design.
-                </p>
-                <div class="space-y-4 font-bold text-slate-300 text-sm">
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>AI-Driven Development</span>
-                    </div>
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>Custom UI/UX Systems</span>
-                    </div>
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <i class="fas fa-check-circle text-blue-500"></i>
-                        <span>Business Automation Expert</span>
-                    </div>
-                </div>
-                <div class="mt-8 flex items-center justify-center md:justify-start gap-4">
-                    <div class="h-px w-8 bg-blue-600"></div>
-                    <span class="font-bold tracking-widest uppercase text-[10px]">The Vantage Guarantee</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-ash-theme py-8 px-6 border-t border-slate-400">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <div class="font-black text-slate-900 text-lg uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
-                <p class="text-slate-600 text-[10px] font-bold uppercase tracking-widest">Wadduwa, Sri Lanka</p>
-            </div>
-            <div class="flex flex-col md:items-end text-center md:text-right">
-                <p class="text-slate-900 font-bold text-xs tracking-widest">+94 77 466 8086</p>
-                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-700 text-[10px] font-bold uppercase hover:underline">vantage.digital.contact@gmail.com</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Anti-spinner logic
         window.addEventListener('load', () => {
             setTimeout(() => { if(window.stop) window.stop(); }, 1000);
         });
