@@ -11,10 +11,12 @@
         .hero-bg {
             background: radial-gradient(circle at top right, #1e293b, #0f172a);
         }
-        /* Custom aspect ratio based on 912x1173 resolution */
         .profile-aspect {
             aspect-ratio: 912 / 1173;
             object-fit: cover;
+        }
+        .work-card:hover img {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -27,8 +29,9 @@
             </div>
             <div class="flex space-x-4 md:space-x-8 items-center font-medium text-sm md:text-base">
                 <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#work" class="hover:text-blue-600 transition">Work</a>
                 <a href="#about" class="hover:text-blue-600 transition">About</a>
-                <a href="https://wa.me/94774668086" target="_blank" class="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-md shadow-blue-200">Contact</a>
+                <a href="https://wa.me/94774668086" target="_blank" class="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Contact</a>
             </div>
         </div>
     </nav>
@@ -41,11 +44,8 @@
             <h1 class="text-3xl md:text-6xl font-bold mb-6 leading-tight">
                 Modern Digital Experiences for <br> <span class="text-blue-500">Growing Businesses</span>
             </h1>
-            <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-                Helping service providers and retail shops stand out with high-performance websites and automated systems.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/94774668086" target="_blank" class="px-8 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center text-white shadow-lg shadow-blue-900/20">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+                <a href="https://wa.me/94774668086" target="_blank" class="px-8 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center text-white">
                     <i class="fab fa-whatsapp mr-2 text-xl"></i> Chat on WhatsApp
                 </a>
                 <a href="mailto:vantage.digital.contact@gmail.com" class="px-8 py-4 bg-slate-800 rounded-xl font-bold border border-slate-700 hover:bg-slate-700 transition text-white text-center">
@@ -57,28 +57,62 @@
 
     <section id="services" class="py-20 px-6">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-slate-900">How We Help You Grow</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-slate-900 uppercase tracking-widest">Our Expertise</h2>
             <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3">Professional Design</h3>
-                    <p class="text-slate-500 leading-relaxed text-sm">Clean, responsive websites that look stunning on any device and capture your brand's unique energy.</p>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-blue-600 text-xl mb-4"><i class="fas fa-desktop"></i></div>
+                    <h3 class="font-bold mb-2">Web Design</h3>
+                    <p class="text-slate-500 text-sm">Responsive, fast-loading sites tailored for local service providers.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3">Smart Automation</h3>
-                    <p class="text-slate-500 leading-relaxed text-sm">Automated booking systems and client management tools that save you hours of work every week.</p>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-blue-600 text-xl mb-4"><i class="fas fa-calendar-check"></i></div>
+                    <h3 class="font-bold mb-2">Booking Systems</h3>
+                    <p class="text-slate-500 text-sm">Automate your schedule. Perfect for Salons and Spas.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">
-                        <i class="fas fa-search-dollar"></i>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-blue-600 text-xl mb-4"><i class="fas fa-rocket"></i></div>
+                    <h3 class="font-bold mb-2">SEO Strategy</h3>
+                    <p class="text-slate-500 text-sm">Be the first business your neighbors see on Google.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-20 bg-slate-100 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 uppercase tracking-widest">Recent Projects</h2>
+                <p class="text-slate-500 mt-4">Solutions designed to scale and succeed</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="work-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 transition group">
+                    <div class="h-64 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800" alt="Salon Project" class="w-full h-full object-cover transition duration-500">
                     </div>
-                    <h3 class="text-lg font-bold mb-3">SEO Optimization</h3>
-                    <p class="text-slate-500 leading-relaxed text-sm">We optimize your site so local customers can find you easily when they search on Google or Bing.</p>
+                    <div class="p-8">
+                        <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Salon & Wellness</span>
+                        <h3 class="text-xl font-bold mt-2 mb-4">Luxe Beauty Hub</h3>
+                        <p class="text-slate-500 text-sm mb-6">A fully automated booking platform with inventory management and local SEO integration.</p>
+                        <a href="#" class="text-slate-900 font-bold text-sm hover:text-blue-600 flex items-center">
+                            View Case Study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 transition group">
+                    <div class="h-64 bg-slate-800 flex items-center justify-center text-slate-500">
+                        <div class="text-center">
+                            <i class="fas fa-tools text-4xl mb-4"></i>
+                            <p class="font-bold uppercase tracking-widest text-xs">Retail System Underway</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <span class="text-slate-400 text-xs font-bold uppercase tracking-widest">Retail & Hardware</span>
+                        <h3 class="text-xl font-bold mt-2 mb-4">Precision Hardware Store</h3>
+                        <p class="text-slate-500 text-sm mb-6">Modernizing a local hardware store with digital cataloging and customer loyalty tracking.</p>
+                        <div class="inline-block px-3 py-1 bg-slate-100 rounded text-xs text-slate-400 font-bold">DEVELOPMENT PHASE</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -97,9 +131,6 @@
                 <p class="text-slate-400 text-base mb-4 leading-relaxed">
                     I'm Chamithu, founder of Vantage Digital. As an AI-specialized IT professional, I bridge the gap between complex technology and practical small business needs.
                 </p>
-                <p class="text-slate-400 text-base mb-6 leading-relaxed">
-                    I build business assets that help you work smarter. Whether you run a high-end salon or a retail shop, my goal is to drive your digital success.
-                </p>
                 <div class="flex items-center justify-center md:justify-start gap-4 text-blue-400">
                     <div class="h-px w-8 bg-blue-600"></div>
                     <span class="font-bold tracking-widest uppercase text-[10px] text-white">The Vantage Guarantee</span>
@@ -115,8 +146,8 @@
                 <p class="text-slate-400 text-xs mt-1">Web Development & Automation</p>
             </div>
             <div class="flex flex-col md:items-end text-center md:text-right">
-                <p class="text-slate-900 font-bold">+94 77 466 8086</p>
-                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600 hover:underline">vantage.digital.contact@gmail.com</a>
+                <p class="text-slate-900 font-bold tracking-wide">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600 hover:underline font-medium">vantage.digital.contact@gmail.com</a>
             </div>
         </div>
         <div class="text-center mt-8 text-slate-300 text-[10px] uppercase tracking-widest">
