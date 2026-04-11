@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage Digital | Home</title>
+    <title>Vantage Digital | Professional Web Solutions</title>
     <link rel="icon" type="image/png" href="./logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,51 +11,131 @@
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
+        .profile-aspect { aspect-ratio: 912 / 1173; object-fit: cover; }
+        
+        /* Hide Scrollbar Logic */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        /* Ash Contrast Colors */
-        .bg-ash-header { background-color: #e2e8f0; } /* slate-200 */
-        .bg-ash-footer { background-color: #cbd5e1; } /* slate-300 */
+
+        /* Custom Ash Contrast Colors */
+        .bg-ash-header { background-color: #e2e8f0; } /* Slate-200 */
+        .bg-ash-footer { background-color: #cbd5e1; } /* Slate-300 */
+        
+        /* Specific Crop for Clothing Tile */
+        .crop-right {
+            object-position: right center;
+            transform: scale(1.1); /* Slight zoom to help the crop effect */
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="fixed w-full z-50 bg-ash-header border-b border-slate-300">
+    <nav class="fixed w-full z-50 bg-ash-header/95 backdrop-blur-md border-b border-slate-300">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <img src="logo.png" class="h-8 w-8 rounded-lg" alt="">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-sm">V</div>
                 <div class="text-lg md:text-xl font-bold tracking-tight text-slate-900 uppercase">
                     VANTAGE <span class="text-blue-600">DIGITAL</span>
                 </div>
             </div>
-            <div class="flex space-x-6 items-center font-medium">
-                <a href="#work" class="text-slate-700 hover:text-blue-600 transition text-sm uppercase">Work</a>
-                <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-xs font-bold uppercase hover:bg-blue-700 transition shadow-md">Contact</a>
+            <div class="flex space-x-4 md:space-x-8 items-center font-bold text-[10px] md:text-xs tracking-widest uppercase">
+                <a href="#services" class="text-slate-600 hover:text-blue-600 transition">Services</a>
+                <a href="#work" class="text-slate-600 hover:text-blue-600 transition">Work</a>
+                <a href="https://wa.me/94774668086" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg text-white pt-40 pb-20 px-6">
+    <header class="hero-bg text-white pt-40 pb-24 px-6">
         <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Build. Scale. <span class="text-blue-500">Vantage.</span></h1>
-            <p class="text-slate-400 max-w-xl mx-auto">Web development and AI solutions tailored for Sri Lankan and International businesses.</p>
+            <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-widest uppercase bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                Premium Web Design & Automation
+            </span>
+            <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+                Modern Digital Tools for <br> <span class="text-blue-500">Local Leaders</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+                <a href="https://wa.me/94774668086" target="_blank" class="px-8 py-4 bg-blue-600 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center text-white">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp Us
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="work" class="py-20 bg-slate-100 px-6">
-        </section>
-
-    <footer class="bg-ash-footer py-12 px-6 border-t border-slate-400">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <div class="font-bold text-slate-900 uppercase tracking-tighter">VANTAGE DIGITAL</div>
-                <p class="text-slate-600 text-[10px] mt-1 uppercase font-bold">Wadduwa • Colombo • Global</p>
+    <section id="work" class="py-24 bg-slate-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 uppercase tracking-widest">Industry Solutions</h2>
+                <p class="text-slate-500 mt-4 text-sm uppercase tracking-widest">Swipe to explore categories</p>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-slate-900 font-bold">+94 77 466 8086</p>
-                <p class="text-slate-700 text-xs italic">vantage.digital.contact@gmail.com</p>
+
+            <div class="flex overflow-x-auto gap-8 pb-10 snap-x snap-mandatory no-scrollbar">
+                
+                <a href="gallery.html#salons" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
+                    <div class="h-56 bg-slate-200 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-bold text-xl text-slate-900">Salons & Spas</h3>
+                        <p class="text-slate-500 text-xs mt-2 uppercase font-bold tracking-widest">Booking Systems</p>
+                    </div>
+                </a>
+
+                <a href="gallery.html#hardware" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
+                    <div class="h-56 bg-slate-800 flex items-center justify-center">
+                        <i class="fas fa-tools text-5xl text-slate-700"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-bold text-xl text-slate-900">Hardware Stores</h3>
+                        <p class="text-slate-500 text-xs mt-2 uppercase font-bold tracking-widest">Inventory & POS</p>
+                    </div>
+                </a>
+
+                <a href="gallery.html#food" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
+                    <div class="h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-bold text-xl text-slate-900">Fast Food & Cafes</h3>
+                        <p class="text-slate-500 text-xs mt-2 uppercase font-bold tracking-widest">Ordering Portals</p>
+                    </div>
+                </a>
+
+                <a href="gallery.html#clothing" class="snap-center shrink-0 w-80 bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-200 hover:border-blue-500 transition group">
+                    <div class="h-56 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" class="w-full h-full object-cover crop-right group-hover:scale-125 transition duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-bold text-xl text-slate-900">Clothing Stores</h3>
+                        <p class="text-slate-500 text-xs mt-2 uppercase font-bold tracking-widest">E-commerce Solutions</p>
+                    </div>
+                </a>
+
             </div>
         </div>
+    </section>
+
+    <footer class="bg-ash-footer py-16 px-6 border-t border-slate-300">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="font-black text-slate-900 text-xl uppercase tracking-tighter">VANTAGE <span class="text-blue-600">DIGITAL</span></div>
+                <p class="text-slate-600 text-[10px] mt-2 font-bold uppercase tracking-widest">Wadduwa • Western Province • Sri Lanka</p>
+            </div>
+            <div class="flex flex-col md:items-end text-center md:text-right">
+                <p class="text-slate-900 font-black text-lg tracking-widest">+94 77 466 8086</p>
+                <a href="mailto:vantage.digital.contact@gmail.com" class="text-blue-600 hover:underline font-bold text-sm">vantage.digital.contact@gmail.com</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+            &copy; 2026 Vantage Digital • High Performance Web
+        </div>
     </footer>
+
+    <script>
+        // Stop loading spinner if missing files cause hang
+        window.addEventListener('load', () => {
+            setTimeout(() => { if(window.stop) window.stop(); }, 1500);
+        });
+    </script>
 </body>
 </html>
