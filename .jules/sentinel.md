@@ -1,0 +1,4 @@
+## 2026-06-06 - [Challenges with SRI and Dynamic CDNs]
+**Vulnerability:** External assets (CSS/JS) loaded from CDNs without Subresource Integrity (SRI) are vulnerable to CDN compromise or manipulation.
+**Learning:** While SRI is a standard security best practice, it is incompatible with dynamic CDNs like the Tailwind Play CDN (`cdn.tailwindcss.com`). The Play CDN generates styles on the fly, meaning its content changes and would invalidate any static hash. Additionally, adding `crossorigin="anonymous"` to such scripts can cause CORS errors when the application is loaded via the `file://` protocol, which is common in local testing environments.
+**Prevention:** Apply SRI and security attributes (`crossorigin`, `referrerpolicy`) only to static, versioned assets (e.g., Font Awesome 6.0.0). Always use a local HTTP server for frontend verification to avoid `file://` protocol quirks.
