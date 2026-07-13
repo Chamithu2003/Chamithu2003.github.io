@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🛡️ Sentinel: Enforce no-referrer policy repository-wide -->
+    <meta name="referrer" content="no-referrer">
     <title>Work Gallery | Vantage Digital</title>
     <link rel="icon" type="image/png" href="./logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 🛡️ Sentinel: Secure external assets with SRI and privacy attributes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
@@ -166,14 +169,20 @@
             document.getElementById('modalDesc').innerText = project.desc;
             
             const grid = document.getElementById('imageGrid');
-            grid.innerHTML = ''; 
+            // 🛡️ Sentinel: Prevent potential DOM-based XSS by using safe DOM manipulation
+            grid.replaceChildren();
 
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const container = document.createElement('div');
+                container.className = "aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200";
+
+                const image = document.createElement('img');
+                image.src = img;
+                image.className = "w-full h-full object-cover";
+                image.onerror = function() { this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot'; };
+
+                container.appendChild(image);
+                grid.appendChild(container);
             });
 
             const modal = document.getElementById('projectModal');
