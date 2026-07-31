@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🛡 Sentinel: Enforce strict no-referrer policy repository-wide to protect user privacy -->
+    <meta name="referrer" content="no-referrer">
     <title>Work Gallery | Vantage Digital</title>
     <link rel="icon" type="image/png" href="./logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 🛡 Sentinel: Secure external Font Awesome CSS asset with Subresource Integrity (SRI) and privacy attributes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
@@ -169,11 +172,21 @@
             grid.innerHTML = ''; 
 
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                // 🛡 Sentinel: Prevent DOM-based XSS by using secure DOM element construction instead of dynamic HTML concatenation via innerHTML
+                const wrapper = document.createElement('div');
+                wrapper.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const image = document.createElement('img');
+                image.className = 'w-full h-full object-cover';
+                // 🛡 Sentinel: Assign onerror handler before src attribute to prevent race conditions during asset load errors
+                image.onerror = function() {
+                    this.onerror = null; // Prevent infinite loop in case placeholder itself fails
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                image.src = img;
+
+                wrapper.appendChild(image);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
