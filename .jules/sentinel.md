@@ -1,0 +1,4 @@
+## 2026-08-13 - Secure Programmatic DOM Modal Rendering
+**Vulnerability:** Dynamic HTML construction using `innerHTML` concatenation on `gallery.html` was prone to DOM-based Cross-Site Scripting (XSS).
+**Learning:** Reconstructing UI elements from static/dynamic arrays using string injection is highly insecure. Additionally, setting an `onerror` handler in an image tag created dynamically can suffer from race conditions or infinite loading loops if the fallback image also fails to load.
+**Prevention:** Always construct DOM elements programmatically via `document.createElement` and set elements' properties (`innerText`, `className`, etc.) securely. Always attach `onerror` event listener callbacks before assigning the `.src` attribute, and ensure the `onerror` callback clears itself (`this.onerror = null;`) before modifying `.src` to a fallback URL.
