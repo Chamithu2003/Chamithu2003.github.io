@@ -166,14 +166,23 @@
             document.getElementById('modalDesc').innerText = project.desc;
             
             const grid = document.getElementById('imageGrid');
-            grid.innerHTML = ''; 
+            grid.textContent = '';
 
+            // 🛡️ Sentinel: Safe DOM element creation prevents DOM-based XSS vulnerability and onerror infinite loops
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const imgElem = document.createElement('img');
+                imgElem.className = 'w-full h-full object-cover';
+                imgElem.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                imgElem.src = img;
+
+                wrapper.appendChild(imgElem);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
