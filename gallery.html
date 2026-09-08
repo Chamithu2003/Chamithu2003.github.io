@@ -56,7 +56,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div onclick="openProject('luxe')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
                     <div class="overflow-hidden rounded-2xl mb-4">
-                        <img src="s1.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Luxe+Hub+Preview'">
+                        <img src="s1.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Luxe+Hub+Preview'">
                     </div>
                     <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">Luxe Hub Booking</h3>
                     <p class="text-slate-400 text-xs px-2 mb-2">Automated appointment scheduling system.</p>
@@ -65,7 +65,7 @@
 
                 <div onclick="openProject('glow')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
                     <div class="overflow-hidden rounded-2xl mb-4">
-                        <img src="s2.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x300?text=Glow+Skin+Preview'">
+                        <img src="s2.png" class="w-full aspect-video object-cover group-hover:scale-110 transition duration-500" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Glow+Skin+Preview'">
                     </div>
                     <h3 class="font-black text-lg text-slate-900 px-2 uppercase tracking-tighter">Glow Skin Portal</h3>
                     <p class="text-slate-400 text-xs px-2 mb-2">Digital storefront & inventory tracker.</p>
@@ -158,22 +158,31 @@
             }
         };
 
+        // 🛡️ Sentinel: Hardened modal logic uses secure DOM construction to prevent DOM-based XSS and sets this.onerror = null to prevent infinite loop DoS
         function openProject(id) {
             const project = projects[id];
             if (!project) return;
 
-            document.getElementById('modalTitle').innerText = project.title;
-            document.getElementById('modalDesc').innerText = project.desc;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDesc').textContent = project.desc;
             
             const grid = document.getElementById('imageGrid');
-            grid.innerHTML = ''; 
+            grid.textContent = '';
 
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const image = document.createElement('img');
+                image.className = 'w-full h-full object-cover';
+                image.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                image.src = img;
+
+                wrapper.appendChild(image);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
