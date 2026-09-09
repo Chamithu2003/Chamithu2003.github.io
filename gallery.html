@@ -158,22 +158,31 @@
             }
         };
 
+        // 🛡️ Sentinel: Safe DOM manipulation to mitigate DOM-based XSS and guard against infinite image fallback loops
         function openProject(id) {
             const project = projects[id];
             if (!project) return;
 
-            document.getElementById('modalTitle').innerText = project.title;
-            document.getElementById('modalDesc').innerText = project.desc;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDesc').textContent = project.desc;
             
             const grid = document.getElementById('imageGrid');
-            grid.innerHTML = ''; 
+            grid.replaceChildren();
 
-            project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+            project.images.forEach(imgSrc => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const img = document.createElement('img');
+                img.className = 'w-full h-full object-cover';
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                img.src = imgSrc;
+
+                wrapper.appendChild(img);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
