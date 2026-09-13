@@ -168,12 +168,21 @@
             const grid = document.getElementById('imageGrid');
             grid.innerHTML = ''; 
 
+            // ð¡ Sentinel: Hardened modal image rendering using DOM API to prevent XSS and infinite onerror loops
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const imgEl = document.createElement('img');
+                imgEl.className = 'w-full h-full object-cover';
+                imgEl.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                imgEl.src = img;
+
+                wrapper.appendChild(imgEl);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
