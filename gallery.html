@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work Gallery | Vantage Digital</title>
     <link rel="icon" type="image/png" href="./logo.png">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -16,7 +16,7 @@
 
         /* Unified Ash Theme (Slate-300) to match Main Page Footer */
         .bg-ash-theme { background-color: #cbd5e1; }
-        
+
         #projectModal.hidden { display: none; }
         #projectModal.flex { display: flex; }
     </style>
@@ -46,13 +46,13 @@
     </header>
 
     <main class="max-w-6xl mx-auto px-6 py-20">
-        
+
         <section id="salons" class="mb-32 scroll-mt-24">
             <div class="flex items-center gap-4 mb-10">
                 <h2 class="text-2xl font-black border-l-4 border-blue-600 pl-4 uppercase tracking-tighter text-slate-900">Health & Beauty</h2>
                 <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full uppercase">Salons</span>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div onclick="openProject('luxe')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
                     <div class="overflow-hidden rounded-2xl mb-4">
@@ -79,7 +79,7 @@
                 <h2 class="text-2xl font-black border-l-4 border-slate-400 pl-4 uppercase tracking-tighter text-slate-700">Hardware & Tools</h2>
                 <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">Retail</span>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div onclick="openProject('iron')" class="group bg-white p-5 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 cursor-pointer hover:border-blue-500 transition-all duration-300">
                     <div class="overflow-hidden rounded-2xl mb-4 bg-slate-900 flex items-center justify-center aspect-video">
@@ -106,16 +106,16 @@
 
     <div id="projectModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-sm items-center justify-center p-4">
         <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-[2.5rem] overflow-hidden relative flex flex-col shadow-2xl">
-            
+
             <button onclick="closeProject()" class="absolute top-6 right-6 z-50 bg-slate-100 hover:bg-red-500 hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-slate-900 transition-all shadow-md">
                 <i class="fas fa-times text-xl"></i>
             </button>
-            
+
             <div class="p-8 md:p-14 overflow-y-auto no-scrollbar">
                 <h2 id="modalTitle" class="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">Project Title</h2>
                 <div class="w-16 h-1 bg-blue-600 my-4"></div>
                 <p id="modalDesc" class="text-slate-500 mb-10 font-medium">Description of the project.</p>
-                
+
                 <div id="imageGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     </div>
             </div>
@@ -164,29 +164,38 @@
 
             document.getElementById('modalTitle').innerText = project.title;
             document.getElementById('modalDesc').innerText = project.desc;
-            
-            const grid = document.getElementById('imageGrid');
-            grid.innerHTML = ''; 
 
+            const grid = document.getElementById('imageGrid');
+            grid.innerHTML = '';
+
+            // 🛡️ Sentinel: Hardened against DOM-based XSS and infinite loading loops using safe DOM manipulation and onerror clearing
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const wrapper = document.createElement("div");
+                wrapper.className = "aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200";
+
+                const imageEl = document.createElement("img");
+                imageEl.className = "w-full h-full object-cover";
+                imageEl.onerror = function() {
+                    this.onerror = null;
+                    this.src = "https://via.placeholder.com/600x400?text=Project+Screenshot";
+                };
+                imageEl.src = img;
+
+                wrapper.appendChild(imageEl);
+                grid.appendChild(wrapper);
             });
 
             const modal = document.getElementById('projectModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
         }
 
         function closeProject() {
             const modal = document.getElementById('projectModal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto';
         }
 
         // Logic to stop browser loading spinner if files are missing
