@@ -168,12 +168,21 @@
             const grid = document.getElementById('imageGrid');
             grid.innerHTML = ''; 
 
+            // 🛡️ Sentinel: Prevent DOM-based XSS by using safe DOM element creation instead of innerHTML concatenation
             project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+                const card = document.createElement('div');
+                card.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const imageElement = document.createElement('img');
+                imageElement.className = 'w-full h-full object-cover';
+                imageElement.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/600x400?text=Project+Screenshot';
+                };
+                imageElement.src = img;
+
+                card.appendChild(imageElement);
+                grid.appendChild(card);
             });
 
             const modal = document.getElementById('projectModal');
