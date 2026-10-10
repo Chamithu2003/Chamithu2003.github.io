@@ -168,12 +168,23 @@
             const grid = document.getElementById('imageGrid');
             grid.innerHTML = ''; 
 
-            project.images.forEach(img => {
-                grid.innerHTML += `
-                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                        <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/600x400?text=Project+Screenshot'">
-                    </div>
-                `;
+            // 🛡️ Sentinel: Safe DOM element construction to prevent DOM-based XSS and safe image error handling
+            const fallbackSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f1f5f9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%2364748b'%3EProject Screenshot%3C/text%3E%3C/svg%3E";
+
+            project.images.forEach(imgSrc => {
+                const card = document.createElement('div');
+                card.className = 'aspect-video bg-slate-100 rounded-2xl overflow-hidden shadow-inner border border-slate-200';
+
+                const img = document.createElement('img');
+                img.className = 'w-full h-full object-cover';
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = fallbackSvg;
+                };
+                img.src = imgSrc;
+
+                card.appendChild(img);
+                grid.appendChild(card);
             });
 
             const modal = document.getElementById('projectModal');
