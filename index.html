@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🛡️ Sentinel: Global Referrer Policy to prevent leaking sensitive URLs -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Vantage Digital | Professional Web Solutions</title>
     <link rel="icon" type="image/png" href="./logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 🛡️ Sentinel: Subresource Integrity (SRI) and security attributes for Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
